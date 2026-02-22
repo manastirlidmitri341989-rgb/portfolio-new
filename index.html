@@ -4,15 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Дмитрий Манастырлы | Портфолио</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Segoe+UI&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
     --color-bg: #f0f4f8;
-    --color-text: #333;
-    --color-header: linear-gradient(135deg, #4f46e5, #3b82f6);
+    --color-text: #111;
+    --color-header: linear-gradient(135deg, #3b82f6, #2563eb);
     --color-card-bg: #fff;
     --color-card-shadow: rgba(0,0,0,0.08);
-    --color-button-bg: linear-gradient(135deg, #4f46e5, #3b82f6);
+    --color-button-bg: linear-gradient(135deg, #3b82f6, #10b981);
 }
 
 body.dark {
@@ -32,18 +34,26 @@ body {
     scroll-behavior: smooth;
 }
 
-/* Хедер */
-header {
+/* Hero-блок */
+.hero {
     background: var(--color-header);
     color: white;
-    padding: 80px 20px;
+    padding: 120px 20px;
     text-align: center;
     position: relative;
 }
-header h1 { margin: 0; font-size: 36px; font-weight: 700; }
-header p { margin-top: 10px; font-size: 20px; opacity: 0.9; }
+.hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    margin: 0;
+}
+.hero p {
+    margin-top: 12px;
+    font-size: 22px;
+    opacity: 0.9;
+}
 
-/* Тема кнопка */
+/* Переключатель темы */
 #theme-toggle {
     position: absolute;
     top: 20px;
@@ -63,53 +73,46 @@ header p { margin-top: 10px; font-size: 20px; opacity: 0.9; }
 /* Секции */
 section {
     padding: 60px 20px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
 }
 h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    font-size: 32px;
+    margin-bottom: 24px;
+    border-left: 6px solid #3b82f6;
+    padding-left: 10px;
 }
 
-/* Карточки */
-.cards {
+/* Карточки проектов */
+.projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
-.card {
-    background: var(--color-card-bg);
-    padding: 30px 25px;
-    border-radius: 16px;
-    box-shadow: 0 12px 25px var(--color-card-shadow);
-    transition: transform 0.4s, box-shadow 0.4s, opacity 0.8s;
-    opacity: 0;
-    transform: translateY(50px);
-}
-.card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-.card h3 { font-size: 22px; margin-bottom: 10px; }
-.card p { font-size: 16px; line-height: 1.5; }
-
-/* Кнопки */
-.button, .contact-buttons a {
-    display: inline-block;
-    padding: 14px 28px;
-    margin-top: 15px;
+.project {
+    position: relative;
+    overflow: hidden;
     border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.project img {
+    width: 100%;
+    display: block;
+}
+.project-title {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(0,0,0,0.6);
     color: white;
-    background: var(--color-button-bg);
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 18px;
 }
-.button:hover, .contact-buttons a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+.project:hover { transform: scale(1.03); }
 
 /* Контакты */
 .contact-buttons {
@@ -121,6 +124,17 @@ h2 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    background: var(--color-button-bg);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.contact-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 /* Футер */
@@ -130,7 +144,7 @@ footer {
     text-align: center;
     padding: 40px 20px;
 }
-footer p { margin: 0; font-size: 16px; }
+footer a { color: #3b82f6; }
 
 /* Плавающая кнопка WhatsApp */
 #whatsapp-float {
@@ -154,88 +168,80 @@ footer p { margin: 0; font-size: 16px; }
     box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
+/* Анимация появления */
+.project, section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+.project.visible, section.visible { 
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Адаптив */
 @media (max-width: 600px) {
-    header h1 { font-size: 28px; }
-    header p { font-size: 16px; }
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 18px; }
     h2 { font-size: 24px; }
 }
 </style>
 </head>
 <body>
 
-<header>
+<div class="hero">
     <h1>Дмитрий Манастырлы</h1>
-    <p>Поставка кабельной продукции | Участие в тендерах | Надёжные решения</p>
+    <p>Профессиональный поставщик кабельной продукции и участник тендеров</p>
     <button id="theme-toggle"><i class="fa fa-moon"></i></button>
-</header>
+</div>
 
-<section>
+<section class="visible">
     <h2>Обо мне</h2>
-    <p>
-    Занимаюсь поставкой кабельной и электротехнической продукции.
-    Работаю с государственными и коммерческими организациями.
-    Гарантирую качество, соблюдение сроков поставки и наличие сертификатов.
-    </p>
+    <p>Занимаюсь поставкой кабельной и электротехнической продукции, работаю с государственными и коммерческими проектами. Гарантирую качество и соблюдение сроков.</p>
 </section>
 
 <section>
-    <h2>Услуги</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Поставка кабельной продукции</h3>
-            <p>Сертифицированные материалы, соответствие стандартам качества.</p>
+    <h2>Мои проекты</h2>
+    <div class="projects-grid">
+        <div class="project">
+            <img src="https://via.placeholder.com/800x500" alt="Проект 1">
+            <div class="project-title">Поставка для объекта A</div>
         </div>
-        <div class="card">
-            <h3>Участие в тендерах</h3>
-            <p>Подготовка документации и полное сопровождение контрактов.</p>
+        <div class="project">
+            <img src="https://via.placeholder.com/800x500" alt="Проект 2">
+            <div class="project-title">Поставка для объекта B</div>
         </div>
-        <div class="card">
-            <h3>Оптовые поставки</h3>
-            <p>Работа с крупными объектами и строительными компаниями.</p>
+        <div class="project">
+            <img src="https://via.placeholder.com/800x500" alt="Проект 3">
+            <div class="project-title">Поставка для объекта C</div>
         </div>
     </div>
 </section>
 
 <section>
-    <h2>Портфолио</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Проект 1</h3>
-            <p>Описание выполненного проекта, фото или сертификат.</p>
+    <h2>Сертификаты</h2>
+    <div class="projects-grid">
+        <div class="project">
+            <img src="https://via.placeholder.com/400x300" alt="Сертификат 1">
+            <div class="project-title">Сертификат ISO 9001</div>
         </div>
-        <div class="card">
-            <h3>Проект 2</h3>
-            <p>Описание выполненного проекта, фото или сертификат.</p>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>Сертификаты качества</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Сертификат 1</h3>
-            <p>Краткое описание сертификата и его подтверждение.</p>
-        </div>
-        <div class="card">
-            <h3>Сертификат 2</h3>
-            <p>Краткое описание сертификата и его подтверждение.</p>
+        <div class="project">
+            <img src="https://via.placeholder.com/400x300" alt="Сертификат 2">
+            <div class="project-title">Сертификат соответствия</div>
         </div>
     </div>
 </section>
 
 <section>
     <h2>Контакты</h2>
-    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
     <div class="contact-buttons">
-        <a href="mailto:your@email.com"><i class="fa fa-envelope"></i> Написать Email</a>
-        <a href="tel:+37000000000"><i class="fa fa-phone"></i> Позвонить</a>
+        <a href="mailto:your@email.com"><i class="fa fa-envelope"></i> Email</a>
+        <a href="tel:+37000000000"><i class="fa fa-phone"></i> Телефон</a>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 Дмитрий Манастырлы. Все права защищены.</p>
+    <p>© 2026 Дмитрий Манастырлы</p>
 </footer>
 
 <a href="https://wa.me/37000000000" target="_blank" id="whatsapp-float">
@@ -243,17 +249,6 @@ footer p { margin: 0; font-size: 16px; }
 </a>
 
 <script>
-// Анимация при скролле
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-        }
-    });
-}, { threshold: 0.2 });
-cards.forEach(card => observer.observe(card));
-
 // Переключатель темы
 const toggle = document.getElementById('theme-toggle');
 toggle.addEventListener('click', () => {
@@ -265,6 +260,17 @@ toggle.addEventListener('click', () => {
         icon.className = 'fa fa-moon';
     }
 });
+
+// Анимация при скролле
+const elements = document.querySelectorAll('.project, section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+elements.forEach(el => observer.observe(el));
 </script>
 
 </body>

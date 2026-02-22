@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дмитрий Манастырлы | Портфолио</title>
+<style>
+/* Основные настройки */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Хедер */
+header {
+    background: linear-gradient(135deg, #4f46e5, #3b82f6);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+header h1 { margin: 0; font-size: 36px; font-weight: 700; }
+header p { margin-top: 10px; font-size: 20px; opacity: 0.9; }
+
+/* Секции */
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 30px;
+    color: #1e293b;
+}
+
+/* Карточки */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+.card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+}
+.card h3 { color: #1e293b; font-size: 22px; margin-bottom: 10px; }
+.card p { color: #475569; font-size: 16px; line-height: 1.5; }
+
+/* Кнопки */
+.button, .contact-buttons a {
+    display: inline-block;
+    padding: 14px 28px;
+    margin-top: 15px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #4f46e5, #3b82f6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.button:hover, .contact-buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Контакты */
+.contact-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+.contact-buttons a {
+    margin: 10px;
+}
+
+/* Футер */
+footer {
+    background: #1e293b;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 40px 20px;
+}
+footer p { margin: 0; font-size: 16px; }
+
+@media (max-width: 600px) {
+    header h1 { font-size: 28px; }
+    header p { font-size: 16px; }
+    h2 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Дмитрий Манастырлы</h1>
+    <p>Поставка кабельной продукции | Участие в тендерах | Надёжные решения</p>
+</header>
+
+<section>
+    <h2>Обо мне</h2>
+    <p>
+    Занимаюсь поставкой кабельной и электротехнической продукции.
+    Работаю с государственными и коммерческими организациями.
+    Гарантирую качество, соблюдение сроков поставки и наличие сертификатов.
+    </p>
+</section>
+
+<section>
+    <h2>Услуги</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Поставка кабельной продукции</h3>
+            <p>Сертифицированные материалы, соответствие стандартам качества.</p>
+        </div>
+        <div class="card">
+            <h3>Участие в тендерах</h3>
+            <p>Подготовка документации и полное сопровождение контрактов.</p>
+        </div>
+        <div class="card">
+            <h3>Оптовые поставки</h3>
+            <p>Работа с крупными объектами и строительными компаниями.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Портфолио</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Проект 1</h3>
+            <p>Описание выполненного проекта, фото или сертификат.</p>
+        </div>
+        <div class="card">
+            <h3>Проект 2</h3>
+            <p>Описание выполненного проекта, фото или сертификат.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Сертификаты качества</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Сертификат 1</h3>
+            <p>Краткое описание сертификата и его подтверждение.</p>
+        </div>
+        <div class="card">
+            <h3>Сертификат 2</h3>
+            <p>Краткое описание сертификата и его подтверждение.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Контакты</h2>
+    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+    <div class="contact-buttons">
+        <a href="https://wa.me/37000000000" target="_blank">WhatsApp</a>
+        <a href="mailto:your@email.com">Написать email</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Дмитрий Манастырлы. Все права защищены.</p>
+</footer>
+
+</body>
+</html>
